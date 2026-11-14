@@ -1,0 +1,10 @@
+# Claims Reporting Service — nightly partner transfer
+#
+# Installed on the shared batch host batch01 (system crontab format: the sixth
+# field is the user the job runs as). Runs as service account svc_rptxfer.
+#
+# Sends claims_daily_<YYYYMMDD>.csv (prior business day) to Northwind
+# Clearinghouse. Partner cut-off: 06:00 America/New_York. Settings: transfer.env.
+#
+# m  h  dom mon dow  user         command
+15 2 * * * svc_rptxfer /usr/local/bin/python3 /opt/crs/ops/batch/partner_transfer.py --env /opt/crs/ops/batch/transfer.env

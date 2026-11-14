@@ -1,0 +1,37 @@
+# Claims Reporting Service (DEMO-CRS) — runtime configuration
+#
+# Fictional application used by the migration-console reference estate.
+# Every host below is fictional (corp.test is a reserved test domain).
+
+service:
+  name: claims-reporting-service
+  code: DEMO-CRS
+  listen_port: 8080
+  log_level: info
+
+dependencies:
+  database:
+    kind: postgres
+    host: crs-db
+    port: 5432
+    name: claims_reporting
+    user: crs_app
+  cache:
+    kind: redis
+    host: crs-cache
+    port: 6379
+  identity:
+    kind: oidc
+    host: idp.corp.test
+    port: 443
+    issuer: https://idp.corp.test/realms/corp
+  mail:
+    kind: smtp
+    host: smtp-relay.corp.test
+    port: 25
+    from: claims-reports@corp.test
+
+monitoring:
+  # How often the service probes each dependency and refreshes /health.
+  dependency_probe_interval_seconds: 30
+  probe_timeout_seconds: 3
