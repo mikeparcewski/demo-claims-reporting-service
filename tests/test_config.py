@@ -1,4 +1,4 @@
-"""Unit tests for configuration loading.  Run: PYTHONPATH=app python3 -m unittest discover tests"""
+"""Unit tests for configuration loading.  Run: python3 -m unittest discover -s tests"""
 
 import os
 import sys

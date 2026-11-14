@@ -14,7 +14,7 @@ serves a small HTTP API and monitors the health of the systems it depends on.
 | `config/application.yaml` | Runtime configuration: listen port, dependencies, probe interval |
 | `Dockerfile` | Container image for the service |
 | `ops/batch/` | Batch jobs installed on the shared batch host (see below) |
-| `tests/` | Unit tests (`PYTHONPATH=app python3 -m unittest discover tests`) |
+| `tests/` | Unit tests (`python3 -m unittest discover -s tests`; the tests put `app/` on the path themselves) |
 
 ## Runtime dependencies (`config/application.yaml`)
 
